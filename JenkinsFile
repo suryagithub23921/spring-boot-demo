@@ -1,0 +1,35 @@
+#!groovy
+
+pipeline {
+    agent any
+	tools {
+                maven 'maven' 
+                jdk 'JDK11'
+          }
+    options {
+        timeout(time: 24, unit: 'HOURS')
+         }
+      stages {
+		stage('clean') {
+		   steps{
+			script{
+			       sh 'mvn clean'
+      			}
+			}
+		}
+		stage('test') {
+		   steps{
+			script{
+			       sh 'mvn test'
+      			}
+			}
+		}
+		stage('Install') {
+		   steps{
+			script{
+			        sh 'mvn install -DskipTests'
+                }
+			}
+		}
+         }
+}
