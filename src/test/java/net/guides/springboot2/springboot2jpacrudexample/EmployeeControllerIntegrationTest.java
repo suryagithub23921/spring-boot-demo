@@ -32,7 +32,6 @@ public class EmployeeControllerIntegrationTest {
 	private String getRootUrl() {
 		return "http://localhost:" + port;
 	}
-
 	@Test
 	public void contextLoads() {
 
