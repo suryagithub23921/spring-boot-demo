@@ -32,6 +32,11 @@ public class EmployeeController {
 		return employeeRepository.findAll();
 	}
 
+	@GetMapping("/employeeMsg")
+	public String getAllEmployees() {
+		return "Employee Spring Boot Demo Project Message print";
+	}
+	
 	@GetMapping("/employees/{id}")
 	public ResponseEntity<Employee> getEmployeeById(@PathVariable(value = "id") Long employeeId)
 			throws ResourceNotFoundException {
